@@ -1,16 +1,18 @@
 use std::borrow::Cow;
 
-use libp2p::{
-    floodsub::{Floodsub, FloodsubEvent, Topic, self},
-    mdns::{Mdns, MdnsEvent},
-    NetworkBehaviour,
-    PeerId,
-    swarm::{NetworkBehaviourEventProcess, SwarmBuilder, SwarmEvent}, Swarm, identity, noise, tcp::TokioTcpConfig, Transport, core::upgrade, yamux, futures::StreamExt
-};
 use anyhow::Result;
+use libp2p::{
+    core::upgrade,
+    floodsub::{self, Floodsub, FloodsubEvent, Topic},
+    futures::StreamExt,
+    identity,
+    mdns::{Mdns, MdnsEvent},
+    noise,
+    swarm::{NetworkBehaviourEventProcess, SwarmBuilder, SwarmEvent},
+    tcp::TokioTcpConfig,
+    yamux, NetworkBehaviour, PeerId, Swarm, Transport,
+};
 use tokio::io::{stdin, AsyncBufReadExt, BufReader};
-
-
 
 #[derive(NetworkBehaviour)]
 #[behaviour(event_process = true)]
@@ -33,7 +35,6 @@ impl ChatBehaviour {
 impl NetworkBehaviourEventProcess<FloodsubEvent> for ChatBehaviour {
     fn inject_event(&mut self, event: FloodsubEvent) {
         if let FloodsubEvent::Message(msg) = event {
-
             let text = String::from_utf8_lossy(&msg.data);
             println!("{:?}: {:?}", msg.source, text);
         }
@@ -49,14 +50,14 @@ impl NetworkBehaviourEventProcess<MdnsEvent> for ChatBehaviour {
                     println!("Got peer: {:?} with addr {:?}", &id, &addr);
                     self.floodsub.add_node_to_partial_view(id);
                 }
-            },
+            }
             MdnsEvent::Expired(list) => {
                 // 把 mdns 发现的离开的 peer 加入到 floodsub 的 view 中
                 for (id, addr) in list {
                     println!("Removed peer: {:?} with addr {:?}", &id, &addr);
                     self.floodsub.remove_node_from_partial_view(&id);
                 }
-            },
+            }
         }
     }
 }
@@ -76,7 +77,6 @@ async fn main() -> Result<()> {
     swarm.listen_on("/ip4/127.0.0.1/tcp/0".parse()?)?;
 
     let mut stdin = BufReader::new(stdin()).lines();
-
 
     loop {
         tokio::select! {
@@ -101,20 +101,21 @@ async fn create_swarm(topic: Topic) -> Result<Swarm<ChatBehaviour>> {
     let noise_keys = noise::Keypair::<noise::X25519Spec>::new().into_authentic(&id_keys)?;
 
     let transport = TokioTcpConfig::new()
-    .nodelay(true)
-    .upgrade(upgrade::Version::V1)
-    .authenticate(noise::NoiseConfig::xx(noise_keys).into_authenticated())
-    .multiplex(yamux::YamuxConfig::default())
-    .boxed();
+        .nodelay(true)
+        .upgrade(upgrade::Version::V1)
+        .authenticate(noise::NoiseConfig::xx(noise_keys).into_authenticated())
+        .multiplex(yamux::YamuxConfig::default())
+        .boxed();
 
     let mut behaviour = ChatBehaviour::new(peer_id.clone()).await?;
 
     behaviour.floodsub.subscribe(topic.clone());
 
     let swarm = SwarmBuilder::new(transport, behaviour, peer_id)
-    .executor(Box::new(|fut| {
-        tokio::spawn(fut);
-    })).build();
+        .executor(Box::new(|fut| {
+            tokio::spawn(fut);
+        }))
+        .build();
 
     Ok(swarm)
 }

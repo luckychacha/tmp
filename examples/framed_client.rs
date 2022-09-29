@@ -1,12 +1,12 @@
-use bytes::Bytes;
-use futures::{StreamExt, SinkExt};
-use tokio::net::TcpStream;
-use tokio_util::codec::{LengthDelimitedCodec, Framed};
 use anyhow::Result;
+use bytes::Bytes;
+use futures::{SinkExt, StreamExt};
+use tokio::net::TcpStream;
+use tokio_util::codec::{Framed, LengthDelimitedCodec};
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    let stream  = TcpStream::connect("127.0.0.1:9527").await?;
+    let stream = TcpStream::connect("127.0.0.1:9527").await?;
 
     let mut stream = Framed::new(stream, LengthDelimitedCodec::new());
 

@@ -1,11 +1,9 @@
-
 pub struct Solution();
-
 
 impl Solution {
     pub fn maximum_binary_string(binary: String) -> String {
         if binary.len() < 1 {
-            return binary
+            return binary;
         }
 
         if !binary.contains("0") {
@@ -15,7 +13,6 @@ impl Solution {
 
         let mut flag = 0;
         let mut zero_count = 0;
-
 
         for c in binary.chars() {
             if c == '0' {
@@ -29,13 +26,11 @@ impl Solution {
         }
 
         let zero_position = start_idx + zero_count;
-        
+
         let mut tmp = vec![1; binary.len()];
         tmp[zero_position] = 0;
 
-        tmp.into_iter().map(|i| {
-            i.to_string()
-        }).collect::<String>()
+        tmp.into_iter().map(|i| i.to_string()).collect::<String>()
     }
 
     pub fn better_maximum_binary_string(binary: String) -> String {
@@ -47,12 +42,10 @@ impl Solution {
         if zero_count > 1 {
             binary = vec![b'1'; binary.len()];
             binary[zero_count + continous_one_count - 1] = b'0';
-
         }
 
         String::from_utf8(binary).unwrap()
     }
-
 }
 
 fn main() {

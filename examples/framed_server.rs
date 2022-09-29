@@ -1,8 +1,8 @@
+use anyhow::Result;
+use bytes::Bytes;
+use futures::{SinkExt, StreamExt};
 use tokio::net::TcpListener;
 use tokio_util::codec::{Framed, LengthDelimitedCodec};
-use bytes::Bytes;
-use anyhow::Result;
-use futures::{SinkExt, StreamExt};
 
 #[tokio::main]
 async fn main() -> Result<()> {

@@ -48,11 +48,15 @@ fn main() {
     println!("Hello, world!");
     let screen = Screen::new(vec![
         Box::new(Button {
-            width:10, height:10, label:String::from("button"),
+            width: 10,
+            height: 10,
+            label: String::from("button"),
         }),
         Box::new(SelectBox {
-            width:10, height:10, label: vec![String::from("1"), String::from("2")],
-        })
+            width: 10,
+            height: 10,
+            label: vec![String::from("1"), String::from("2")],
+        }),
     ]);
     screen.run();
 }
