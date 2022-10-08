@@ -2,19 +2,19 @@ pub struct Solution();
 
 impl Solution {
     pub fn maximum_binary_string(binary: String) -> String {
-        if binary.len() < 1 {
+        if binary.is_empty() {
             return binary;
         }
 
-        if !binary.contains("0") {
+        if !binary.contains('0') {
             return binary;
         }
         let mut start_idx = binary.len() + 1;
 
-        let mut flag = 0;
+        // let mut flag = 0;
         let mut zero_count = 0;
 
-        for c in binary.chars() {
+        for (flag, c) in binary.chars().enumerate() {
             if c == '0' {
                 if flag < start_idx {
                     start_idx = flag;
@@ -22,7 +22,7 @@ impl Solution {
                     zero_count += 1;
                 }
             }
-            flag += 1;
+            // flag += 1;
         }
 
         let zero_position = start_idx + zero_count;
