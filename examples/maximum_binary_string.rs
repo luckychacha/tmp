@@ -1,5 +1,5 @@
 pub struct Solution();
-
+/// 1702. 修改后的最大二进制字符串
 impl Solution {
     pub fn maximum_binary_string(binary: String) -> String {
         if binary.is_empty() {

@@ -1,4 +1,5 @@
 // Definition for singly-linked list.
+// 1669. 合并两个链表
 struct Solution();
 
 #[derive(PartialEq, Eq, Clone, Debug)]

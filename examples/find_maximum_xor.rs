@@ -1,5 +1,5 @@
 struct Solution();
-
+/// 剑指 Offer II 067. 最大的异或
 #[derive(Default, Debug)]
 pub struct Trie {
     children: [Option<Box<Trie>>; 2],

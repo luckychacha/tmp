@@ -1,5 +1,5 @@
 pub struct Solution();
-
+/// 775. 全局倒置与局部倒置
 impl Solution {
     pub fn is_ideal_permutation(nums: Vec<i32>) -> bool {
         for (idx, num) in nums.iter().enumerate() {
