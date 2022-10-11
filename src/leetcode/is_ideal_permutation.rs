@@ -1,4 +1,5 @@
-pub struct Solution();
+use super::Solution;
+
 /// 775. 全局倒置与局部倒置
 impl Solution {
     pub fn is_ideal_permutation(nums: Vec<i32>) -> bool {
@@ -13,6 +14,12 @@ impl Solution {
     }
 }
 
-fn main() {
-    println!("{:?}", Solution::is_ideal_permutation(vec![2,0,1]));
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn is_ideal_permutation_should_work() {
+        println!("{:?}", Solution::is_ideal_permutation(vec![2,0,1]));
+    }
 }

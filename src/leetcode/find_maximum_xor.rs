@@ -1,4 +1,5 @@
-struct Solution();
+use super::Solution;
+
 /// 剑指 Offer II 067. 最大的异或
 #[derive(Default, Debug)]
 pub struct Trie {
@@ -66,9 +67,14 @@ impl Solution {
     }
 }
 
+#[cfg(test)]
+mod test {
+    use super::*;
 
-fn main() {
-    let max_xor = Solution::find_maximum_xor(vec![3,10,5,25,2,8]);
+    #[test]
+    fn max_xor_should_work() {
+        let max_xor = Solution::find_maximum_xor(vec![3,10,5,25,2,8]);
 
-    println!("{:?}", max_xor);
+        println!("{:?}", max_xor);
+    }
 }

@@ -41,7 +41,7 @@ mod test {
     use super::*;
 
     #[test]
-    fn should_work() {
+    fn decode_string_should_work() {
         let t = |s: &str| Solution::decode_string(s.into());
         assert_eq!("aaabcbc", t("3[a]2[bc]"));
         assert_eq!("accaccacc", t("3[a2[c]]"));

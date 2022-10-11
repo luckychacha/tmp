@@ -1,6 +1,6 @@
 // Definition for singly-linked list.
 // 1669. 合并两个链表
-struct Solution();
+use super::Solution;
 
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
@@ -54,25 +54,31 @@ impl Solution {
     }
 }
 
-fn main() {
-    let res = Solution::merge_in_between(
-        Some(Box::new(ListNode {
-            val: 1,
-            next: Some(Box::new(ListNode {
-                val: 2,
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn better_maximum_binary_string_should_work() {
+        let res = Solution::merge_in_between(
+            Some(Box::new(ListNode {
+                val: 1,
                 next: Some(Box::new(ListNode {
-                    val: 3,
-                    next: Some(Box::new(ListNode { val: 4, next: None })),
+                    val: 2,
+                    next: Some(Box::new(ListNode {
+                        val: 3,
+                        next: Some(Box::new(ListNode { val: 4, next: None })),
+                    })),
                 })),
             })),
-        })),
-        1,
-        1,
-        Some(Box::new(ListNode {
-            val: 5,
-            next: Some(Box::new(ListNode { val: 6, next: None })),
-        })),
-    );
-
-    println!("{:?}", res)
+            1,
+            1,
+            Some(Box::new(ListNode {
+                val: 5,
+                next: Some(Box::new(ListNode { val: 6, next: None })),
+            })),
+        );
+    
+        println!("{:?}", res)
+    }
 }

@@ -1,4 +1,5 @@
-pub struct Solution();
+use super::Solution;
+
 /// 1702. 修改后的最大二进制字符串
 impl Solution {
     pub fn maximum_binary_string(binary: String) -> String {
@@ -48,9 +49,15 @@ impl Solution {
     }
 }
 
-fn main() {
-    // let res = Solution::maximum_binary_string(String::from("000110"));
-    let res = Solution::better_maximum_binary_string(String::from("000110"));
 
-    println!("res: {:?}", res);
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn better_maximum_binary_string_should_work() {
+        let res = Solution::better_maximum_binary_string(String::from("000110"));
+
+        println!("res: {:?}", res);
+    }
 }

@@ -75,12 +75,12 @@ impl Solution {
         let mut cnt = vec![0];
 
         for (idx, v) in s.bytes().enumerate() {
-            cnt.push(cnt[idx] ^ (1 << (v - 97)));
+            cnt.push(cnt[idx] ^ (1 << (v - 97)))
         }
 
         queries.into_iter()
         .map(|v| (v[0] as usize, v[1] as usize, v[2] as u32))
-        .map(|(left, right, chance)| ((cnt[left] ^ cnt[right + 1]) as i32).count_ones() / 2 <= chance)
+        .map(|(left, right, chance_count)| (cnt[left] ^ cnt[right + 1]) / 2 <= chance_count)
         .collect()
     }
 }
@@ -90,15 +90,15 @@ mod test {
     use super::*;
     
     #[test]
-    fn should_work() {
+    fn can_make_pali_queries_should_work() {
         println!("1177. 构建回文串检测(can_make_pali_queries)");
     
         // "rkzavgdmdgt"
         // "01234567890"
         // [[5,8,0],[7,9,1],[3,6,4],[5,5,1],[8,10,0],[3,9,5],[0,10,10],[6,8,3]]
-        let res = Solution::can_make_pali_queries(String::from("aa"), vec![vec![0,1,0]]);
+        let res = Solution::can_make_pali_queries(String::from("rkzavgdmdgt"), vec![vec![8,10,0]]);
     
-        println!("res: {:?}", res);
+        assert_eq!(vec![false], res);
     
         // & 位与	相同位置均为1时则为1，否则为0
         // | 位或	相同位置只要有1时则为1，否则为0
