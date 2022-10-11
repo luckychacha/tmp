@@ -1,4 +1,4 @@
-struct Solution();
+use super::Solution;
 
 impl Solution {
     // pub fn can_make_pali_queries(s: String, queries: Vec<Vec<i32>>) -> Vec<bool> {
@@ -73,43 +73,47 @@ impl Solution {
 
     pub fn can_make_pali_queries(s: String, queries: Vec<Vec<i32>>) -> Vec<bool> {
         let mut cnt = vec![0];
-        for (i, v) in s.bytes().enumerate() {
-            println!("cnt[{:?}]: {:?} {:08b}", i, cnt[i], cnt[i]);
-            println!("next: v:{:?} {:?} {:08b}", v, cnt[i] ^ 1 << (v - 97), cnt[i] ^ 1 << (v - 97));
-            cnt.push(cnt[i] ^ 1 << (v - 97));
+
+        for (idx, v) in s.bytes().enumerate() {
+            cnt.push(cnt[idx] ^ (1 << (v - 97)));
         }
-        
-        queries
-            .into_iter()
-            .map(|v| (v[0] as usize, v[1] as usize, v[2] as u32))
-            .map(|(i, j, k)| (cnt[i] ^ cnt[j + 1] as i32).count_ones() / 2 <= k)
-            .collect()
+
+        queries.into_iter()
+        .map(|v| (v[0] as usize, v[1] as usize, v[2] as u32))
+        .map(|(left, right, chance)| ((cnt[left] ^ cnt[right + 1]) as i32).count_ones() / 2 <= chance)
+        .collect()
     }
 }
 
-fn main() {
-    println!("1177. 构建回文串检测(can_make_pali_queries)");
-
-    // "rkzavgdmdgt"
-    // "01234567890"
-    // [[5,8,0],[7,9,1],[3,6,4],[5,5,1],[8,10,0],[3,9,5],[0,10,10],[6,8,3]]
-    let res = Solution::can_make_pali_queries(String::from("aa"), vec![vec![0,1,0]]);
-
-    println!("res: {:?}", res);
-
-    // & 位与	相同位置均为1时则为1，否则为0
-    // | 位或	相同位置只要有1时则为1，否则为0
-    // ^ 异或	相同位置不相同则为1，相同则为0
-    // ! 位非	把位中的0和1相互取反，即0置为1，1置为0
-    // << 左移	所有位向左移动指定位数，右位补零
-    // >> 右移	所有位向右移动指定位数，左位补零
-    // println!("位与：3 & 4: {:08b}", 3 & 4);
-    // println!("位与：3 & 4: {:?}", 3 & 4);
-    // println!("位或：3 | 4: {:08b}", 3 | 4);
-    // println!("异或：3 ^ 4: {:08b}", 3 ^ 4);
-    // println!("位非：!4: {:08b}", !4);
-    // println!("a: {:08b} {:?}", b'a', b'a');
-    // println!("a: {:08b} {:?}", 1 << (b'a' - 97), 1 << (b'a' - 97));
-    // println!("a: {:08b}", 1 << (b'b' - 97));
-
+#[cfg(test)]
+mod test {
+    use super::*;
+    
+    #[test]
+    fn should_work() {
+        println!("1177. 构建回文串检测(can_make_pali_queries)");
+    
+        // "rkzavgdmdgt"
+        // "01234567890"
+        // [[5,8,0],[7,9,1],[3,6,4],[5,5,1],[8,10,0],[3,9,5],[0,10,10],[6,8,3]]
+        let res = Solution::can_make_pali_queries(String::from("aa"), vec![vec![0,1,0]]);
+    
+        println!("res: {:?}", res);
+    
+        // & 位与	相同位置均为1时则为1，否则为0
+        // | 位或	相同位置只要有1时则为1，否则为0
+        // ^ 异或	相同位置不相同则为1，相同则为0
+        // ! 位非	把位中的0和1相互取反，即0置为1，1置为0
+        // << 左移	所有位向左移动指定位数，右位补零
+        // >> 右移	所有位向右移动指定位数，左位补零
+        // println!("位与：3 & 4: {:08b}", 3 & 4);
+        // println!("位与：3 & 4: {:?}", 3 & 4);
+        // println!("位或：3 | 4: {:08b}", 3 | 4);
+        // println!("异或：3 ^ 4: {:08b}", 3 ^ 4);
+        // println!("位非：!4: {:08b}", !4);
+        // println!("a: {:08b} {:?}", b'a', b'a');
+        // println!("a: {:08b} {:?}", 1 << (b'a' - 97), 1 << (b'a' - 97));
+        // println!("a: {:08b}", 1 << (b'b' - 97));
+    
+    }
 }
