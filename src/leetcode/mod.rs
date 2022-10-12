@@ -4,5 +4,6 @@ mod find_maximum_xor;
 mod is_ideal_permutation;
 mod maximum_binary_string;
 mod merge_in_between;
+mod interpret;
 
 pub struct Solution();
