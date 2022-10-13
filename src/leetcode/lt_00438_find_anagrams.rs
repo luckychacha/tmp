@@ -7,33 +7,31 @@ impl Solution {
             return vec![];
         }
 
-        let s = s.bytes().collect::<Vec<_>>();
-        let p = p.bytes().collect::<Vec<_>>();
+        let s = s.bytes().collect::<Vec<u8>>();
+        let p = p.bytes().collect::<Vec<u8>>();
 
         let mut res = vec![];
-
         let mut target = vec![0; 255];
-        let mut cur = vec![0; 255];
+        let mut current = vec![0; 255];
 
         p.iter().for_each(|&c| target[c as usize] += 1);
 
-        for i in 0..(s.len() - (p.len() - 1)) {
+        for i in 0..s.len() - (p.len()-1) {
             if i == 0 {
                 for j in 0..p.len() {
-                    cur[s[j] as usize] += 1;
+                    current[s[j] as usize] += 1;
                 }
             } else {
-                cur[s[i - 1] as usize] -= 1;
-                cur[s[i + p.len() - 1] as usize] += 1;
+                current[s[i - 1] as usize] -= 1;
+                current[s[i + (p.len() - 1)] as usize] += 1;
             }
 
-            if cur == target {
+            if current == target {
                 res.push(i as i32);
             }
         }
 
         res
-
     }
 }
 
