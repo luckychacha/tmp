@@ -1,9 +1,12 @@
 use super::Solution;
 impl Solution {
     pub fn projection_area(grid: Vec<Vec<i32>>) -> i32 {
-
-        let mut left = vec![0; 50];
         let mut front = 0;
+
+        // let mut a: Vec<bool> = vec![false; 50];
+        // let mut aa: Box<[bool]> = [false; 50].iter().cloned().collect();
+        let mut left: Box<[i32]> = [0; 50].iter().cloned().collect();
+        // let mut left: vec![0; 50];
 
         // top
         let top: i32 = grid.iter().enumerate().map(|(_, item)| {
