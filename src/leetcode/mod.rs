@@ -10,5 +10,6 @@ mod lt_01959_min_space_wasted_k_resizing;
 mod lt_01333_filter_restaurants;
 mod lt_00883_projection_area;
 mod lt_02216_min_deletion;
+mod lt_02279_maximum_bags;
 
 pub struct Solution();
