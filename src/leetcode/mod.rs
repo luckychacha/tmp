@@ -11,5 +11,6 @@ mod lt_01333_filter_restaurants;
 mod lt_00883_projection_area;
 mod lt_02216_min_deletion;
 mod lt_02279_maximum_bags;
+mod lt_00665_check_possibility;
 
 pub struct Solution();
