@@ -13,5 +13,6 @@ mod lt_02216_min_deletion;
 mod lt_02279_maximum_bags;
 mod lt_00665_check_possibility;
 mod lt_01528_restore_string;
+mod lt_00647_count_substrings;
 
 pub struct Solution();
