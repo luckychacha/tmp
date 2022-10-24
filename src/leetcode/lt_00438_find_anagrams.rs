@@ -16,7 +16,7 @@ impl Solution {
 
         p.iter().for_each(|&c| target[c as usize] += 1);
 
-        for i in 0..s.len() - (p.len()-1) {
+        for i in 0..s.len() - (p.len() - 1) {
             if i == 0 {
                 for j in 0..p.len() {
                     current[s[j] as usize] += 1;
@@ -50,7 +50,6 @@ mod test {
             vec![0, 1, 2],
             Solution::find_anagrams(String::from("abab"), String::from("ab"))
         );
-
 
         assert_eq!(
             vec![1],
