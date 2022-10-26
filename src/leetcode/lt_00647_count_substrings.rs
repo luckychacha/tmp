@@ -60,6 +60,6 @@ mod test {
 
     #[test]
     fn count_substrings_should_work() {
-        assert_eq!(Solution::count_substrings(String::from("aaa")), 7);
+        assert_eq!(Solution::count_substrings(String::from("aaa")), 6);
     }
 }
