@@ -17,5 +17,6 @@ mod lt_00647_count_substrings;
 mod lt_01315_sum_even_grandparent;
 mod lt_00682_cal_points;
 mod lt_00000_best_line;
+mod lt_01415_get_happy_string;
 
 pub struct Solution();
