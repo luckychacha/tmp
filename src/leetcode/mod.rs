@@ -18,5 +18,6 @@ mod lt_01315_sum_even_grandparent;
 mod lt_00682_cal_points;
 mod lt_00000_best_line;
 mod lt_01415_get_happy_string;
+mod lt_00915_partition_disjoint;
 
 pub struct Solution();
