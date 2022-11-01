@@ -61,5 +61,9 @@ fn main() {
     //     }),
     // ]);
     // screen.run();
-    println!("{}", leetcode::Solution::interpret(String::from("(al)G(al)()()G")));
+    println!(
+        "{}",
+        leetcode::Solution::interpret(String::from("(al)G(al)()()G"))
+    );
+    leetcode::Solution::can_convert_string(String::from("input"), String::from("ouput"), 9);
 }

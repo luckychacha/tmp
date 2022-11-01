@@ -14,11 +14,10 @@ impl Solution {
                 prev_max = total_max;
                 answer = i;
             }
-
         }
 
         answer as i32 + 1
-        
+
         // let a = (1..nums.len())
         //     .fold(
         //         (1, nums[0], nums[0]),
@@ -40,17 +39,7 @@ mod test {
 
     #[test]
     fn partition_disjoint_should_work() {
-<<<<<<< HEAD
-        assert_eq!(
-            Solution::partition_disjoint(vec![1,1,1,0,6,12]),
-            4
-        );
-        assert_eq!(
-            Solution::partition_disjoint(vec![1,1]),
-            1
-        );
-=======
         assert_eq!(Solution::partition_disjoint(vec![1, 1, 1, 0, 6, 12]), 4);
->>>>>>> 387f0539be0f1b87ce91d57e8cdb170148c07184
+        assert_eq!(Solution::partition_disjoint(vec![1, 1]), 1);
     }
 }
