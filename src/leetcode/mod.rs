@@ -5,6 +5,7 @@ mod lt_00438_find_anagrams;
 mod lt_00647_count_substrings;
 mod lt_00665_check_possibility;
 mod lt_00682_cal_points;
+mod lt_00767_reorganize_string;
 mod lt_00775_is_ideal_permutation;
 mod lt_00883_projection_area;
 mod lt_00915_partition_disjoint;
