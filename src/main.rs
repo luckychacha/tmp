@@ -1,4 +1,4 @@
-mod leetcode;
+pub mod leetcode;
 
 pub trait Draw {
     fn draw(&self);
