@@ -3,7 +3,7 @@ use super::Solution;
 // https://leetcode.cn/problems/reorganize-string/
 impl Solution {
     pub fn reorganize_string(s: String) -> String {
-        let mut frequency = [0; 26];
+        let mut frequency = vec![0; 26];
         let n = s.len();
         let mut max = 0;
         s.bytes().into_iter().for_each(|letter| {
