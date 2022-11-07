@@ -20,7 +20,8 @@ impl Solution {
             .filter(|&item| item.1 > 0)
             .map(|item| vec![(item.0 + 97) as u8; item.1])
             .collect();
-        frequency.sort_unstable_by(|a, b| a.len().cmp(&b.len()));
+        // frequency.sort_unstable_by(|a, b| a.len().cmp(&b.len()));
+        frequency.sort_unstable_by_key(|a| a.len());
 
         let mut answer: Vec<u8> = vec![0; n];
         let mut bytes: Vec<u8> = frequency.into_iter().flatten().collect();
@@ -28,6 +29,7 @@ impl Solution {
         (0..n).step_by(2).for_each(|idx| {
             answer[idx] = bytes.pop().unwrap();
         });
+
         (1..n).step_by(2).for_each(|idx| {
             answer[idx] = bytes.pop().unwrap();
         });
