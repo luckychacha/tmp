@@ -1,4 +1,3 @@
-// use tmp::leetcode::lt_00767_reorganize_string;
 use tmp::leetcode::Solution;
 
 #[test]
