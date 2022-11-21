@@ -24,5 +24,6 @@ pub mod lt_01959_min_space_wasted_k_resizing;
 pub mod lt_02134_min_swaps;
 pub mod lt_02216_min_deletion;
 pub mod lt_02279_maximum_bags;
+pub mod lt_01827_min_operations;
 
 pub struct Solution();

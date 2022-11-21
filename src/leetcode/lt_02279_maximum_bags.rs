@@ -1,4 +1,5 @@
-use super::Solution;
+// use super::Solution;
+use crate::leetcode::Solution;
 
 impl Solution {
     pub fn maximum_bags(capacity: Vec<i32>, rocks: Vec<i32>, additional_rocks: i32) -> i32 {
@@ -8,7 +9,7 @@ impl Solution {
             .zip(rocks.iter())
             .map(|(&capacity_item, &rocks_item)| capacity_item - rocks_item)
             .collect::<Vec<i32>>();
-        
+
         // 改用 sort_unstable 用时节约一半
         // rest_capacity.sort();
         rest_capacity.sort_unstable();
