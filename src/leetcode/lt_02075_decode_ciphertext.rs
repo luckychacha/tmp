@@ -13,13 +13,10 @@ impl Solution {
                 .chars()
                 .into_iter()
                 .fold((0, 0), |(mut tmp_row, mut tmp_col), item| {
-                    println!("item:{}", item);
                     if tmp_col >= col_count {
                         tmp_col = 0;
                         tmp_row += 1;
                     }
-                    println!("tmp_row: {tmp_row} tmp_col: {tmp_col}");
-
                     new_vec[tmp_row].push(item);
                     tmp_col += 1;
 
@@ -27,15 +24,15 @@ impl Solution {
                 });
 
         for i in 0..col_count {
-            for j in 0..rows as usize {
+            for (j, _) in new_vec.iter().enumerate().take(rows as usize) {
                 let y = i as i32 + j as i32;
                 if y >= col_count {
-                    continue;
+                    break;
                 }
                 res.push(new_vec[j][y as usize]);
             }
         }
 
-        res.iter().collect::<String>().trim_end().to_string()
+        res.iter().collect::<String>().trim_end().to_owned()
     }
 }

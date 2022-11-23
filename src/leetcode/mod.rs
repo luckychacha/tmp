@@ -2,6 +2,7 @@ pub mod lt_00000_best_line;
 pub mod lt_00067_jz_find_maximum_xor;
 pub mod lt_00131_partition;
 pub mod lt_00191_hamming_weight;
+pub mod lt_00227_calculate;
 pub mod lt_00394_decode_string;
 pub mod lt_00438_find_anagrams;
 pub mod lt_00647_count_substrings;

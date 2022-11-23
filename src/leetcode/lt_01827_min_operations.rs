@@ -2,7 +2,7 @@ use crate::leetcode::Solution;
 
 impl Solution {
     pub fn min_operations(nums: Vec<i32>) -> i32 {
-        if nums.len() <= 0 {
+        if nums.len() == 0 {
             return 0;
         }
         let (total, _) = nums
