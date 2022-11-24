@@ -10,6 +10,7 @@ pub mod lt_00665_check_possibility;
 pub mod lt_00682_cal_points;
 pub mod lt_00767_reorganize_string;
 pub mod lt_00775_is_ideal_permutation;
+pub mod lt_00823_num_factored_binary_trees;
 pub mod lt_00883_projection_area;
 pub mod lt_00915_partition_disjoint;
 pub mod lt_01177_can_make_pali_queries;
