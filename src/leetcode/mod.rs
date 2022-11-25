@@ -5,6 +5,7 @@ pub mod lt_00191_hamming_weight;
 pub mod lt_00227_calculate;
 pub mod lt_00394_decode_string;
 pub mod lt_00438_find_anagrams;
+pub mod lt_00445_add_two_numbers;
 pub mod lt_00647_count_substrings;
 pub mod lt_00665_check_possibility;
 pub mod lt_00682_cal_points;
