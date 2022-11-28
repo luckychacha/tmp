@@ -2,7 +2,7 @@ use std::collections::BinaryHeap;
 
 use crate::leetcode::Solution;
 
-#[derive(Debug, Copy, Clone, Eq, PartialEq)]
+#[derive(Eq, PartialEq)]
 struct AppleBatch {
     sum: i32,
     expiration: i32,
@@ -40,9 +40,8 @@ impl Solution {
             if tmp_day < n && apples[tmp_day] > 0 {
                 queue.push(AppleBatch::new(
                     apples[tmp_day],
-                    tmp_day as i32 + days[tmp_day]
+                    tmp_day as i32 + days[tmp_day],
                 ));
-                println!("{:?}", queue);
             }
 
             while let Some(last) = queue.peek() {
