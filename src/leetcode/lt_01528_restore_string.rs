@@ -19,7 +19,7 @@ mod test {
     #[test]
     fn restore_string_should_work() {
         assert_eq!(
-            Solution::restore_string(String::from("codeleet"), vec![4,5,6,7,0,2,1,3]),
+            Solution::restore_string(String::from("codeleet"), vec![4, 5, 6, 7, 0, 2, 1, 3]),
             String::from("leetcode")
         );
     }

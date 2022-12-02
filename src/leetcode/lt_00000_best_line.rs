@@ -11,7 +11,7 @@ impl Solution {
         let mut tmp = 0;
 
         for i in 0..n {
-            for j in i+1..n {
+            for j in i + 1..n {
                 tmp = 2;
 
                 let rest_number = n - j - 1;
@@ -23,7 +23,7 @@ impl Solution {
                 let delta_x_ij = points[j][0] - points[i][0];
                 let delta_y_ij = points[j][1] - points[i][1];
 
-                for k in j+1..n {
+                for k in j + 1..n {
                     let delta_x_ik = points[k][0] - points[i][0];
                     let delta_y_ik = points[k][1] - points[i][1];
 
@@ -43,7 +43,6 @@ impl Solution {
     }
 }
 
-
 #[cfg(test)]
 mod test {
     use super::*;
@@ -51,9 +50,7 @@ mod test {
     #[test]
     fn best_line_should_work() {
         assert_eq!(
-            Solution::best_line(
-                vec![vec![0,0],vec![1,1],vec![1,0],vec![2,0]]
-            ),
+            Solution::best_line(vec![vec![0, 0], vec![1, 1], vec![1, 0], vec![2, 0]]),
             vec![0, 2]
         )
     }

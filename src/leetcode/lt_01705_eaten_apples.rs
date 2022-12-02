@@ -5,6 +5,7 @@ use crate::leetcode::Solution;
 #[derive(Eq, PartialEq)]
 struct AppleBatch {
     sum: i32,
+
     expiration: i32,
 }
 

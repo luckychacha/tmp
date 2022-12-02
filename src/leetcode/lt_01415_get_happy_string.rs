@@ -1,7 +1,6 @@
 use super::Solution;
 
 impl Solution {
-
     fn happy_string_dfs(memo: &mut Vec<String>, arr: &mut Vec<char>, n: usize) {
         if arr.len() == n {
             memo.push(arr.iter().collect::<String>());
@@ -19,12 +18,11 @@ impl Solution {
     }
 
     pub fn get_happy_string(n: i32, k: i32) -> String {
-
         let k = (k - 1) as usize;
 
         let mut memo: Vec<String> = vec![];
         // let mut arr: Vec<char> = vec![];
-        
+
         for c in ['a', 'b', 'c'] {
             Solution::happy_string_dfs(&mut memo, &mut vec![c], n as usize);
         }
@@ -42,9 +40,6 @@ mod test {
 
     #[test]
     fn get_happy_string_should_work() {
-        assert_eq!(
-            Solution::get_happy_string(3, 9),
-            String::from("cab")
-        )
+        assert_eq!(Solution::get_happy_string(3, 9), String::from("cab"))
     }
 }
