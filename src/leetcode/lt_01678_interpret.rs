@@ -2,7 +2,6 @@ use super::Solution;
 
 impl Solution {
     pub fn interpret(command: String) -> String {
-
         (command + " ")
             .as_bytes()
             .windows(2)

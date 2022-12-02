@@ -1,4 +1,5 @@
 pub mod leetcode;
+// 指定文件进行test：cargo test --test lt_01705
 
 pub trait Draw {
     fn draw(&self);

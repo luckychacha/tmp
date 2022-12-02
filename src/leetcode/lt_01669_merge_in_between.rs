@@ -78,7 +78,7 @@ mod test {
                 next: Some(Box::new(ListNode { val: 6, next: None })),
             })),
         );
-    
+
         println!("{:?}", res)
     }
 }

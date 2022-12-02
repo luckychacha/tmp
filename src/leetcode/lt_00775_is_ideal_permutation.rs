@@ -9,7 +9,6 @@ impl Solution {
             }
         }
 
-
         true
     }
 }
@@ -20,6 +19,6 @@ mod test {
 
     #[test]
     fn is_ideal_permutation_should_work() {
-        println!("{:?}", Solution::is_ideal_permutation(vec![2,0,1]));
+        println!("{:?}", Solution::is_ideal_permutation(vec![2, 0, 1]));
     }
 }
