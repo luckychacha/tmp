@@ -30,5 +30,6 @@ pub mod lt_02134_min_swaps;
 pub mod lt_02216_min_deletion;
 pub mod lt_02279_maximum_bags;
 pub mod lt_01705_eaten_apples;
+pub mod lt_00274_h_index;
 
 pub struct Solution();
