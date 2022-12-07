@@ -1,8 +1,5 @@
 use tmp::leetcode::Solution;
 
-// 指定文件进行test：cargo test --test lt_01705
-// 输出包含println! 的结果：cargo test --test lt_01705 -- --nocapture
-
 #[test]
 fn _01705_eaten_apples_should_work() {
     println!("1");

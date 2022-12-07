@@ -33,5 +33,6 @@ pub mod lt_02075_decode_ciphertext;
 pub mod lt_02134_min_swaps;
 pub mod lt_02216_min_deletion;
 pub mod lt_02279_maximum_bags;
+pub mod lt_01252_odd_cells;
 
 pub struct Solution();
