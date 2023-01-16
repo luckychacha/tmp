@@ -20,7 +20,7 @@ impl Solution {
         for i in start_index..s.len() {
             match Solution::checked(start_index, i, s) {
                 true => {
-                    path.push(s[start_index..=i].into_iter().collect());
+                    path.push(s[start_index..=i].iter().collect());
                     Solution::backstrace(s, i + 1, res, path);
                     path.pop();
                 }
@@ -29,7 +29,7 @@ impl Solution {
         }
     }
 
-    fn checked(start: usize, end: usize, s: &Vec<char>) -> bool {
+    fn checked(start: usize, end: usize, s: &[char]) -> bool {
         let mut start = start;
         let mut end = end;
         while start < end {

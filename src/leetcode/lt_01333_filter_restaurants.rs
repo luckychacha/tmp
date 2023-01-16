@@ -20,7 +20,7 @@ impl Solution {
             if left_rating != right_rating {
                 return right_rating.cmp(left_rating);
             }
-            return right_id.cmp(left_id);
+            right_id.cmp(left_id)
         });
 
         tmp.iter().map(|item| item.0).collect::<Vec<i32>>()

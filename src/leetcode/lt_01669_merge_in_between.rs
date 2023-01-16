@@ -43,8 +43,8 @@ impl Solution {
 
         let mut prev = None;
 
-        for i in 0..nodes.len() {
-            let last = nodes[i];
+        for item in nodes {
+            let last = item;
             let mut node = ListNode::new(last);
             node.next = prev;
             prev = Some(Box::new(node));

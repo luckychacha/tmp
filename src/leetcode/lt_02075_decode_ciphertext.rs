@@ -25,7 +25,7 @@ impl Solution {
 
         for i in 0..col_count {
             for (j, _) in new_vec.iter().enumerate().take(rows as usize) {
-                let y = i as i32 + j as i32;
+                let y = i + j as i32;
                 if y >= col_count {
                     break;
                 }

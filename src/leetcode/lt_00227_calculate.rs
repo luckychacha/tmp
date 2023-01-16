@@ -15,38 +15,35 @@ impl Solution {
         let mut sign = b'+';
         let mut val = 0;
 
-        (s + "+")
-            .as_bytes()
-            .into_iter()
-            .for_each(|&item| match item {
-                b'0'..=b'9' => {
-                    val = val * 10 + item as i32 - '0' as i32;
-                }
-                b' ' => {}
-                _ => {
-                    match sign {
-                        b'+' => {
-                            queue.push(val);
-                        }
-                        b'-' => {
-                            queue.push(-val);
-                        }
-                        b'*' => {
-                            if let Some(last) = queue.pop() {
-                                queue.push(last * val);
-                            }
-                        }
-                        b'/' => {
-                            if let Some(last) = queue.pop() {
-                                queue.push(last / val);
-                            }
-                        }
-                        _ => {}
+        (s + "+").as_bytes().iter().for_each(|&item| match item {
+            b'0'..=b'9' => {
+                val = val * 10 + item as i32 - '0' as i32;
+            }
+            b' ' => {}
+            _ => {
+                match sign {
+                    b'+' => {
+                        queue.push(val);
                     }
-                    sign = item;
-                    val = 0;
+                    b'-' => {
+                        queue.push(-val);
+                    }
+                    b'*' => {
+                        if let Some(last) = queue.pop() {
+                            queue.push(last * val);
+                        }
+                    }
+                    b'/' => {
+                        if let Some(last) = queue.pop() {
+                            queue.push(last / val);
+                        }
+                    }
+                    _ => {}
                 }
-            });
+                sign = item;
+                val = 0;
+            }
+        });
         queue.iter().sum::<i32>()
     }
 }

@@ -9,17 +9,14 @@ impl Solution {
             return s;
         }
         palindrome_end -= 1;
-        while palindrome_end >= 0 {
+        loop {
             if Solution::is_palindrome(&chars[0..palindrome_end], palindrome_end) {
                 break;
             }
             palindrome_end -= 1;
         }
 
-        chars[palindrome_end..]
-            .iter()
-            .rev()
-            .collect::<String>() + &s
+        chars[palindrome_end..].iter().rev().collect::<String>() + &s
     }
 
     fn is_palindrome(source: &[char], size: usize) -> bool {

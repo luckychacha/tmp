@@ -7,7 +7,7 @@ impl Solution {
 
         let mut answer = 0;
 
-        for i in 1..nums.len() {
+        for (i, _) in nums.iter().enumerate().skip(1) {
             total_max = total_max.max(nums[i]);
 
             if nums[i] < prev_max {

@@ -30,7 +30,7 @@ impl Solution {
         if memo.len() <= k {
             return "".to_string();
         }
-        memo[k as usize].clone()
+        memo[k].clone()
     }
 }
 

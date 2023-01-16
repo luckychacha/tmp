@@ -2,7 +2,6 @@ use super::Solution;
 
 impl Solution {
     pub fn can_convert_string(s: String, t: String, k: i32) -> bool {
-        println!("{:?}", 2 % 10);
         if s.len() != t.len() {
             return false;
         }
@@ -22,7 +21,7 @@ impl Solution {
         // ab -> bd; ab -> bc
         // '1' -> 1, '2' -> 1; '1' -> 2
         println!("{:?}", used_k);
-        for i in 1..26 {
+        for (i, _) in used_k.iter().enumerate().take(26).skip(1) {
             println!("i: {i} left {} k: {}", i as i32 + (used_k[i] - 1) * 26, k);
 
             if i as i32 + (used_k[i] - 1) * 26 > k {

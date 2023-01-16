@@ -25,7 +25,7 @@ impl Solution {
         // 因为 RefCell 是智能指针，已经实现了自动解引用（Deref）
         // 所以 dfs 函数接收的 &TreeNode 参数就是引用 borrow 的结果。
         if let Some(node) = root {
-            Solution::dfs(&node.clone().borrow(), false, false, &mut ans);
+            Solution::dfs(&node.borrow(), false, false, &mut ans);
         }
         ans
     }

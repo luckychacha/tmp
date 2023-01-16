@@ -8,11 +8,9 @@ impl Solution {
         let mut ans = vec![0; 2];
         let mut max_points = 0;
 
-        let mut tmp = 0;
-
         for i in 0..n {
             for j in i + 1..n {
-                tmp = 2;
+                let mut tmp = 2;
 
                 let rest_number = n - j - 1;
                 if max_points >= tmp + rest_number {

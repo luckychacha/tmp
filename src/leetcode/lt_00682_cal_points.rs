@@ -1,5 +1,5 @@
 use super::Solution;
-use std::collections::VecDeque;
+// use std::collections::VecDeque;
 
 impl Solution {
     pub fn cal_points(operations: Vec<String>) -> i32 {
@@ -10,7 +10,7 @@ impl Solution {
                 Ok(number) => {
                     res.push(number);
                 }
-                Err(e) => {
+                Err(_e) => {
                     let n = res.len();
                     match i.as_str() {
                         "+" => res.push(res[n - 1] + res[n - 2]),

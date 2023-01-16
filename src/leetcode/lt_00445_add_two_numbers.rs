@@ -34,7 +34,7 @@ impl Solution {
         }
 
         let mut carry = 0;
-        while v1.len() != 0 || v2.len() != 0 || carry > 0 {
+        while !v1.is_empty() || !v2.is_empty() || carry > 0 {
             let x = if let Some(t) = v1.pop() { t } else { 0 };
             let y = if let Some(t) = v2.pop() { t } else { 0 };
             let tmp = x + y + carry;
