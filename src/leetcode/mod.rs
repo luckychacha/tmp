@@ -18,6 +18,7 @@ pub mod lt_00823_num_factored_binary_trees;
 pub mod lt_00883_projection_area;
 pub mod lt_00915_partition_disjoint;
 pub mod lt_01177_can_make_pali_queries;
+pub mod lt_01252_odd_cells;
 pub mod lt_01315_sum_even_grandparent;
 pub mod lt_01333_filter_restaurants;
 pub mod lt_01415_get_happy_string;
@@ -33,6 +34,6 @@ pub mod lt_02075_decode_ciphertext;
 pub mod lt_02134_min_swaps;
 pub mod lt_02216_min_deletion;
 pub mod lt_02279_maximum_bags;
-pub mod lt_01252_odd_cells;
+pub mod lt_02300_successful_pairs;
 
 pub struct Solution();
