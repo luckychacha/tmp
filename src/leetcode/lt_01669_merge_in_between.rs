@@ -1,19 +1,7 @@
 // Definition for singly-linked list.
 // 1669. 合并两个链表
-use super::Solution;
+use super::{ListNode, Solution};
 
-#[derive(PartialEq, Eq, Clone, Debug)]
-pub struct ListNode {
-    pub val: i32,
-    pub next: Option<Box<ListNode>>,
-}
-//
-impl ListNode {
-    #[inline]
-    fn new(val: i32) -> Self {
-        ListNode { next: None, val }
-    }
-}
 impl Solution {
     pub fn merge_in_between(
         list1: Option<Box<ListNode>>,

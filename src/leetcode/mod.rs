@@ -17,6 +17,7 @@ pub mod lt_00775_is_ideal_permutation;
 pub mod lt_00823_num_factored_binary_trees;
 pub mod lt_00883_projection_area;
 pub mod lt_00915_partition_disjoint;
+pub mod lt_01171_remove_zero_sum_sublists;
 pub mod lt_01177_can_make_pali_queries;
 pub mod lt_01252_odd_cells;
 pub mod lt_01315_sum_even_grandparent;
@@ -37,3 +38,16 @@ pub mod lt_02279_maximum_bags;
 pub mod lt_02300_successful_pairs;
 
 pub struct Solution();
+
+#[derive(PartialEq, Eq, Clone, Debug)]
+pub struct ListNode {
+    pub val: i32,
+    pub next: Option<Box<ListNode>>,
+}
+//
+impl ListNode {
+    #[inline]
+    pub fn new(val: i32) -> Self {
+        ListNode { next: None, val }
+    }
+}
