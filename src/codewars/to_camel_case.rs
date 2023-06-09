@@ -2,7 +2,7 @@ pub fn to_camel_case(text: &str) -> String {
     if text.is_empty() {
         return text.to_owned();
     }
-    text.split(&['-', '_'][..])
+    text.split(&['-', '_'])
         .enumerate()
         .map(|(idx, item)| match idx {
             0 => item.to_owned(),
